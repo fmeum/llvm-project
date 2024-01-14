@@ -528,7 +528,8 @@ void ModuleMap::diagnoseHeaderInclusion(Module *RequestingModule,
 
       // If uses need to be specified explicitly, we are only allowed to return
       // modules that are explicitly used by the requesting module.
-      if (RequestingModule && LangOpts.ModulesDeclUse &&
+      if (RequestingModule && 
+          (LangOpts.ModulesDeclUse || LangOpts.ModulesStrictDeclUse) &&
           !RequestingModule->directlyUses(Header.getModule())) {
         NotUsed = Header.getModule();
         continue;
