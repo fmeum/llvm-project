@@ -382,6 +382,7 @@ neither on the command line nor via binary ID lookup.
 
 :::{option} -empty-profile
 Display the baseline coverage of the binaries with all zero execution counts.
+Binaries without coverage data are ignored rather than reported as an error.
 Mutually exclusive with -instr-profile.
 :::
 
@@ -474,6 +475,7 @@ neither on the command line nor via binary ID lookup.
 
 :::{option} -empty-profile
 Display the baseline coverage of the binaries with all zero execution counts.
+Binaries without coverage data are ignored rather than reported as an error.
 Mutually exclusive with -instr-profile.
 :::
 
@@ -574,6 +576,7 @@ neither on the command line nor via binary ID lookup.
 
 :::{option} -empty-profile
 Export the baseline coverage of the binaries with all zero execution counts.
+Binaries without coverage data are ignored rather than reported as an error.
 Mutually exclusive with -instr-profile.
 :::
 

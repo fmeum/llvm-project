@@ -1124,7 +1124,11 @@ Expected<std::unique_ptr<CoverageMapping>> CoverageMapping::load(
     }
   }
 
-  if (!DataFound)
+  // Without a profile, the baseline coverage of objects without coverage data
+  // (e.g. those compiled from a source file that only defines data) is simply
+  // empty. This lets build systems generate baseline coverage for arbitrary
+  // instrumented objects without having to know whether they contain code.
+  if (!DataFound && ProfileReader)
     return createFileError(
         join(ObjectFilenames.begin(), ObjectFilenames.end(), ", "),
         make_error<CoverageMapError>(coveragemap_error::no_data_found));
